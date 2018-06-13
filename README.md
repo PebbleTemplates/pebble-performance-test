@@ -1,4 +1,4 @@
-Running the benchmark
+Running the benchmark [![Build Status](https://travis-ci.org/PebbleTemplates/pebble-performance-test.svg?branch=master)](https://travis-ci.org/PebbleTemplates/pebble-performance-test)
 ======================
 
 1. Download the source code and build it (`mvn clean package`)

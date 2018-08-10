@@ -3,32 +3,31 @@ package io.pebbletemplates.benchmark;
 import com.mitchellbosecke.pebble.PebbleEngine;
 import com.mitchellbosecke.pebble.error.PebbleException;
 import com.mitchellbosecke.pebble.template.PebbleTemplate;
-
-import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.Setup;
-
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.Map;
+import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.Setup;
 
 public class Pebble extends BaseBenchmark {
 
-    private Map<String, Object> context;
+  private Map<String, Object> context;
+  private PebbleEngine engine;
 
-    private PebbleTemplate template;
+  @Setup
+  public void setup() throws PebbleException {
+    this.engine = new PebbleEngine.Builder()
+        .autoEscaping(false)
+        .build();
+    this.context = this.getContext();
+  }
 
-    @Setup
-    public void setup() throws PebbleException {
-        PebbleEngine engine = new PebbleEngine.Builder().autoEscaping(false).build();
-        template = engine.getTemplate("templates/stocks.pebble.html");
-        this.context = getContext();
-    }
-
-    @Benchmark
-    public String benchmark() throws PebbleException, IOException {
-        StringWriter writer = new StringWriter();
-        template.evaluate(writer, context);
-        return writer.toString();
-    }
+  @Benchmark
+  public String benchmark() throws PebbleException, IOException {
+    PebbleTemplate template = this.engine.getTemplate("templates/stocks.pebble.html");
+    StringWriter writer = new StringWriter();
+    template.evaluate(writer, this.context);
+    return writer.toString();
+  }
 
 }

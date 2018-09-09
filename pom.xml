@@ -18,7 +18,7 @@
 
     <uberjar.name>benchmarks</uberjar.name>
     <jmh.version>1.21</jmh.version>
-    <pebble.version>3.0.3</pebble.version>
+    <pebble.version>3.0.4</pebble.version>
     <logback.version>1.2.3</logback.version>
     <junit.version>4.12</junit.version>
   </properties>

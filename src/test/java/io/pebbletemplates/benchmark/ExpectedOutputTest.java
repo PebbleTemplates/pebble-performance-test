@@ -1,20 +1,19 @@
 package io.pebbletemplates.benchmark;
 
-import com.mitchellbosecke.pebble.error.PebbleException;
-
-import org.junit.BeforeClass;
-import org.junit.Test;
+import io.pebbletemplates.pebble.error.PebbleException;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Locale;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ExpectedOutputTest {
 
-    @BeforeClass
+    @BeforeAll
     public static void beforeClass() {
         Locale.setDefault(Locale.ENGLISH);
     }

@@ -19,7 +19,7 @@
     <uberjar.name>benchmarks</uberjar.name>
     <jmh.version>1.35</jmh.version>
     <pebble.version>3.2.0-SNAPSHOT</pebble.version>
-    <logback.version>1.4.4</logback.version>
+    <logback.version>1.4.12</logback.version>
     <junit-jupiter.version>5.9.1</junit-jupiter.version>
   </properties>
 
